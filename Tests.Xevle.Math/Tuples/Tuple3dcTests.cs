@@ -5,10 +5,12 @@ using Xevle.Math.Tuples;
 namespace Tests.Xevle.Math
 {
 	[TestFixture()]
-	public class Test
+	public static class Test
 	{
+		static double delta=0.0001;
+		
 		[Test()]
-		public void TestConstructor()
+		public static void TestConstructor()
 		{
 			// Prepare test
 			Tuple3dc tuple = new Tuple3dc(1, 2, 3);
@@ -22,7 +24,7 @@ namespace Tests.Xevle.Math
 		#region Test operators
 		#region Unary operators
 		[Test()]
-		public void TestUnaryOperatorPlus()
+		public static void TestUnaryOperatorPlus()
 		{
 			// Prepare test
 			Tuple3dc tuple = new Tuple3dc(1, 2, 3);
@@ -35,7 +37,7 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
-		public void TestUnaryOperatorMinus()
+		public static void TestUnaryOperatorMinus()
 		{
 			// Prepare test
 			Tuple3dc tuple = new Tuple3dc(1, 2, 3);
@@ -48,35 +50,43 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
-		public void TestUnaryOperatorMagnitude()
+		public static void TestUnaryOperatorMagnitude()
 		{
 			// Prepare test
 			Tuple3dc tuple = new Tuple3dc(1, 2, 3);
 			double magnitude = !tuple;
-			double diff = System.Math.Abs(3.74165738677394 - magnitude);          	
 
 			// Execute test
-			if (diff > 0.01)
-			{
-				Assert.Fail();
-			}
+			Assert.AreEqual(3.74165738677394, magnitude, delta);
 		}
 
 		[Test()]
-		public void TestUnaryOperatorNormalize()
+		public static void TestUnaryOperatorNormalize()
 		{
 			// Prepare test
 			Tuple3dc tuple = new Tuple3dc(1, 2, 3);
 			Tuple3dc normalizedTuple = ~tuple;
 
-			double diffX = System.Math.Abs(0.267261241912424 - normalizedTuple.x);    
-			double diffY = System.Math.Abs(0.534522483824849 - normalizedTuple.y);    
-			double diffZ = System.Math.Abs(0.801783725737273 - normalizedTuple.z);    
+			// Execute test
+			Assert.AreEqual(0.267261241912424, normalizedTuple.x, delta);
+			Assert.AreEqual(0.534522483824849, normalizedTuple.y, delta);
+			Assert.AreEqual(0.801783725737273, normalizedTuple.z, delta);
+		}
+		#endregion
+
+		#region Binary operators
+		[Test()]
+		public static void TestAddition()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a + b;
 
 			// Execute test
-			if (diffX > 0.01) Assert.Fail();
-			if (diffY > 0.01) Assert.Fail();
-			if (diffZ > 0.01) Assert.Fail();
+			Assert.AreEqual(5, c.x, delta);
+			Assert.AreEqual(7, c.y, delta);
+			Assert.AreEqual(9, c.z, delta);
 		}
 		#endregion
 		#endregion
