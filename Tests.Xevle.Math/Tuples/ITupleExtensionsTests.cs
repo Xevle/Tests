@@ -5,12 +5,18 @@ using Xevle.Math.Tuples;
 namespace Tests.Xevle.Math
 {
 	[TestFixture()]
+	/// <summary>
+	/// Test class to test ITupleExtensions
+	/// </summary>
 	public static class ITupleExtensionsTests
 	{
 		static double delta = 0.0001;
 
 		#region Converter methods
 		[Test()]
+		/// <summary>
+		/// Test the conversation from ITuple to Tuple3dc
+		/// </summary>
 		public static void TestToTuple3dc()
 		{
 			// Prepare test
@@ -31,6 +37,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Test the conversation from ITuple to Tuple3ds
+		/// </summary>
 		public static void TestToTuple3ds()
 		{
 			// Prepare test

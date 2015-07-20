@@ -5,11 +5,17 @@ using Xevle.Math.Tuples;
 namespace Tests.Xevle.Math
 {
 	[TestFixture()]
+	/// <summary>
+	/// Tests for the vector class Tuple3dc
+	/// </summary>
 	public static class Tuple3dcTests
 	{
 		static double delta = 0.0001;
 
 		[Test()]
+		/// <summary>
+		/// Tests the constructor.
+		/// </summary>
 		public static void TestConstructor()
 		{
 			// Prepare test
@@ -24,6 +30,9 @@ namespace Tests.Xevle.Math
 		#region Test operators
 		#region Unary operators
 		[Test()]
+		/// <summary>
+		/// Tests the unary operator plus.
+		/// </summary>
 		public static void TestUnaryOperatorPlus()
 		{
 			// Prepare test
@@ -37,6 +46,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the unary operator minus.
+		/// </summary>
 		public static void TestUnaryOperatorMinus()
 		{
 			// Prepare test
@@ -50,6 +62,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the unary operator magnitude.
+		/// </summary>
 		public static void TestUnaryOperatorMagnitude()
 		{
 			// Prepare test
@@ -61,6 +76,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the unary operator normalize.
+		/// </summary>
 		public static void TestUnaryOperatorNormalize()
 		{
 			// Prepare test
@@ -76,6 +94,9 @@ namespace Tests.Xevle.Math
 
 		#region Binary operators
 		[Test()]
+		/// <summary>
+		/// Tests the binary operator plus.
+		/// </summary>
 		public static void TestBinaryOperatorPlus()
 		{
 			// Prepare test
@@ -90,6 +111,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the binary operator minus.
+		/// </summary>
 		public static void TestBinaryOperatorMinus()
 		{
 			// Prepare test
@@ -107,6 +131,9 @@ namespace Tests.Xevle.Math
 
 		#region Methods
 		[Test()]
+		/// <summary>
+		/// Tests the angle to method.
+		/// </summary>
 		public static void TestAngleTo()
 		{
 			// Prepare test
@@ -119,6 +146,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the epsilon equals method.
+		/// </summary>
 		public static void TestEpsilonEquals()
 		{
 			// Prepare test
@@ -136,6 +166,9 @@ namespace Tests.Xevle.Math
 		}
 
 		[Test()]
+		/// <summary>
+		/// Tests the epsilon equals 2d method.
+		/// </summary>
 		public static void TestEpsilonEquals2D()
 		{
 			// Prepare test
