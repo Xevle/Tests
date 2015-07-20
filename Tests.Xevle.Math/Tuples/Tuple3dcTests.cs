@@ -7,8 +7,8 @@ namespace Tests.Xevle.Math
 	[TestFixture()]
 	public static class Test
 	{
-		static double delta=0.0001;
-		
+		static double delta = 0.0001;
+
 		[Test()]
 		public static void TestConstructor()
 		{
@@ -76,7 +76,7 @@ namespace Tests.Xevle.Math
 
 		#region Binary operators
 		[Test()]
-		public static void TestAddition()
+		public static void TestBinaryOperatorPlus()
 		{
 			// Prepare test
 			Tuple3dc a = new Tuple3dc(1, 2, 3);
@@ -88,7 +88,71 @@ namespace Tests.Xevle.Math
 			Assert.AreEqual(7, c.y, delta);
 			Assert.AreEqual(9, c.z, delta);
 		}
+
+		[Test()]
+		public static void TestBinaryOperatorMinus()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a - b;
+
+			// Execute test
+			Assert.AreEqual(-3, c.x, delta);
+			Assert.AreEqual(-3, c.y, delta);
+			Assert.AreEqual(-3, c.z, delta);
+		}
 		#endregion
+		#endregion
+
+		#region Methods
+		[Test()]
+		public static void TestAngleTo()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			double angle = a.AngleTo(b);
+
+			// Execute test
+			Assert.AreEqual(0.225726128552734, angle, delta);
+		}
+
+		[Test()]
+		public static void TestEpsilonEquals()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(1.05, 2.05, 3.05);
+			Tuple3dc c = new Tuple3dc(1, 2, 3.20);
+
+			bool equalsAB = a.EpsilonEquals(b, 0.1);
+			bool equalsAC = a.EpsilonEquals(c, 0.1);
+
+			// Execute test
+			Assert.AreEqual(true, equalsAB);
+			Assert.AreEqual(false, equalsAC);
+
+		}
+
+		[Test()]
+		public static void TestEpsilonEquals2D()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(1.05, 2.05, 3.05);
+			Tuple3dc c = new Tuple3dc(1, 2, 3.20);
+			Tuple3dc d = new Tuple3dc(1, 2.20, 3.20);
+
+			bool equalsAB = a.EpsilonEquals2D(b, 0.1);
+			bool equalsAC = a.EpsilonEquals2D(c, 0.1);
+			bool equalsAD = a.EpsilonEquals2D(d, 0.1);
+
+			// Execute test
+			Assert.AreEqual(true, equalsAB);
+			Assert.AreEqual(true, equalsAC);
+			Assert.AreEqual(false, equalsAD);
+		}
 		#endregion
 	}
 }
