@@ -112,6 +112,23 @@ namespace Tests.Xevle.Math
 
 		[Test()]
 		/// <summary>
+		/// Tests the binary operator plus with ITuple.
+		/// </summary>
+		public static void TestBinaryOperatorPlusWithITuple()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			ITuple b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a + b;
+
+			// Execute test
+			Assert.AreEqual(5, c.x, delta);
+			Assert.AreEqual(7, c.y, delta);
+			Assert.AreEqual(9, c.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
 		/// Tests the binary operator minus.
 		/// </summary>
 		public static void TestBinaryOperatorMinus()
@@ -125,6 +142,133 @@ namespace Tests.Xevle.Math
 			Assert.AreEqual(-3, c.x, delta);
 			Assert.AreEqual(-3, c.y, delta);
 			Assert.AreEqual(-3, c.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator minus.
+		/// </summary>
+		public static void TestBinaryOperatorMinusWithITuple()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			ITuple b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a - b;
+
+			// Execute test
+			Assert.AreEqual(-3, c.x, delta);
+			Assert.AreEqual(-3, c.y, delta);
+			Assert.AreEqual(-3, c.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator scale.
+		/// </summary>
+		public static void TestBinaryOperatorScale()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = a * 4.7;
+
+			// Execute test
+			Assert.AreEqual(4.7, b.x, delta);
+			Assert.AreEqual(9.4, b.y, delta);
+			Assert.AreEqual(14.1, b.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator dot product.
+		/// </summary>
+		public static void TestBinaryOperatorDotProduct()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			double c = a * b;
+
+			// Execute test
+			Assert.AreEqual(32, c, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator dot product with ITuple.
+		/// </summary>
+		public static void TestBinaryOperatorDotProductWithITuple()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			ITuple b = new Tuple3dc(4, 5, 6);
+			double c = a * b;
+
+			// Execute test
+			Assert.AreEqual(32, c, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator cross product.
+		/// </summary>
+		public static void TestBinaryOperatorCrossProduct()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a ^ b;
+
+			// Execute test
+			Assert.AreEqual(-3, c.x, delta);
+			Assert.AreEqual(6, c.y, delta);
+			Assert.AreEqual(-3, c.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator cross product with ITuple.
+		/// </summary>
+		public static void TestBinaryOperatorCrossProductWithITuple()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			ITuple b = new Tuple3dc(4, 5, 6);
+			Tuple3dc c = a ^ b;
+
+			// Execute test
+			Assert.AreEqual(-3, c.x, delta);
+			Assert.AreEqual(6, c.y, delta);
+			Assert.AreEqual(-3, c.z, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator distance.
+		/// </summary>
+		public static void TestBinaryOperatorDistance()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			Tuple3dc b = new Tuple3dc(4, 5, 6);
+			double c = a % b;
+
+			// Execute test
+			Assert.AreEqual(5.19615242270663, c, delta);
+		}
+
+		[Test()]
+		/// <summary>
+		/// Tests the binary operator distance with ITuple.
+		/// </summary>
+		public static void TestBinaryOperatorDistanceWithITuple()
+		{
+			// Prepare test
+			Tuple3dc a = new Tuple3dc(1, 2, 3);
+			ITuple b = new Tuple3dc(4, 5, 6);
+			double c = a % b;
+
+			// Execute test
+			Assert.AreEqual(5.19615242270663, c, delta);
 		}
 		#endregion
 		#endregion
